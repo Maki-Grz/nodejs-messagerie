@@ -11,7 +11,7 @@
 
 </head>
 <body>
-
+    <h1 id="number"></h1>
     <div id="messages"></div>
     <form action="">
         <input id="msg" autocomplete="off"/><button>Send</button>
@@ -32,8 +32,13 @@
                 return false;
             })
 
+            var compteur = 0;
+            
             socket.on('tchat_message', function (msg) {
                 $("#messages").append($("<p>").text(msg));
+
+                compteur++;
+                $('#number').text(compteur);
             });
         });
     </script>
